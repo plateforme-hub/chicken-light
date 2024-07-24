@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwvgm0ZBxf1f6VXJIxqhrpdKcV6CgfkgZRBA&s">
+    <title>Restaurant Homepage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f00;
+            padding: 10px 20px;
+            border-radius: 20px;
+            margin: 20px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid white;
+            border-radius: 15px;
+            margin: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .navbar a:hover {
+            background-color: white;
+            color: #f00;
+        }
+        .navbar .contact-button {
+            background-color: white;
+            color: #f00;
+            border: 2px solid white;
+            padding: 10px 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .navbar .contact-button:hover {
+            background-color: #f00;
+            color: white;
+        }
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f00;
+            color: white;
+            padding: 50px 20px;
+            text-align: left;
+            border-radius: 20px;
+            margin: 20px;
+        }
+        .hero-section img {
+            max-width: 50%;
+            height: auto;
+            border-radius: 20px;
+            margin-right: 20px;
+        }
+        .hero-section .text-content {
+            max-width: 50%;
+        }
+        .hero-section h1 {
+            font-size: 3em;
+            margin: 20px 0;
+        }
+        .hero-section p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        
+        .menu-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px;
+            background-color: #fff;
+            border-radius: 20px;
+            margin: 20px;
+            text-align: center;
+        }
+        
+        .menu-section h1 {
+            text-align: center;
+            color: #f00;
+            margin-bottom: 20px;
+        }
+        
+        .menu-image {
+            width: 80%;
+            max-width: 800px;
+            margin: 10px;
+            border: 5px solid #f00;
+            border-radius: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .menu-image:hover {
+            transform: scale(1.05);
+        }
+        
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                align-items: center;
+            }
+            .navbar a, .navbar .contact-button {
+                width: 100%;
+                text-align: center;
+                margin: 5px 0;
+            }
+            .hero-section {
+                flex-direction: column;
+            }
+            .hero-section img {
+                max-width: 100%;
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            .hero-section .text-content {
+                max-width: 100%;
+                text-align: center;
+            }
+            .hero-section h1 {
+                font-size: 2.5em;
+            }
+            .hero-section p {
+                font-size: 1em;
+            }
+            .menu-section{
+                max-width: 100%;
+            }
+            .menu-image {
+                width: 95%;
+            }
+        }
+
+        .ratings-section {
+            padding: 30px 20px;
+            background-color: #fff;
+            border-radius: 20px;
+            margin: 20px;
+            margin-top: -30px;
+            
+        }
+        .ratings-section h2 {
+            text-align: center;
+            color: #f00;
+            margin-bottom: 20px;
+        }
+        .rating {
+            border: 2px solid #f00;
+            border-radius: 20px;
+            padding: 20px;
+            margin: 10px;
+            background-color: #f9f9f9;
+        }
+        .rating p {
+            margin: 5px 0;
+        }
+        .rating .client-name {
+            font-weight: bold;
+            color: #f00;
+        }
+        .see-more {
+            color: #f00;
+            text-decoration: underline;
+            cursor: pointer;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .footer {
+            background-color: #f00;
+            color: white;
+            padding: 30px 20px;
+            border-radius: 20px;
+            margin: 100px 20px;
+            margin-bottom: 0px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .footer div {
+            margin: 10px;
+            text-align: center;
+        }
+        .footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .footer .logo img {
+            max-width: 150px;
+            border-radius: 20px;
+        }
+        .footer .social-icons a {
+            margin: 0 10px;
+        }
+        .footer .social-icons img {
+            width: 30px;
+            height: 30px;
+        }
+
+        @media (max-width: 372px) {
+            .navbar a, .navbar .contact-button {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+            .menu-image {
+                width: 90%;
+            }
+        }
+        @media (max-width: 299px) {
+            .navbar a, .navbar .contact-button {
+                padding: 5px 8px;
+                font-size: 12px;
+            }
+            .menu-image {
+                width: 95%;
+            }
+            .menu-section h1 {
+                font-size: 18px;
+            }
+        }
+        @media (max-width: 262px) {
+            .navbar a, .navbar .contact-button {
+                padding: 2px 6px;
+                font-size: 12px;
+            }
+            .menu-image {
+                width: 95%;
+            }
+            .menu-section h1 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="#accueil">Accueil</a>
+            <a href="#menu">Menu</a>
+            <a href="#rating">Avis</a>
+        </div>
+        <button class="contact-button" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });">Contacts</button>
+
+    </nav>
+    <div class="hero-section">
+        <img src="friedchicken.png" alt="Restaurant Image">
+        <div class="text-content">
+            <h1>Welcome to Our Restaurant</h1>
+            <p>We specialize in delicious fried chicken and mouth-watering hamburgers. Our unique recipes and high-quality ingredients ensure that every bite is packed with flavor and satisfaction.</p>
+        </div>
+    </div>
+    <div id="menu" class="menu-section">
+        <h1>our menu</h1>
+        <a href="menu1.jpg">
+            <img src="menu1.jpg" alt="Menu 1" class="menu-image">
+        </a>
+        <a href="menu2.jpg">
+            <img src="menu2.jpg" alt="Menu 2" class="menu-image">
+        </a>
+    </div>
+    <div id="rating" class="ratings-section">
+        <h2>Client Ratings</h2>
+        <div class="rating">
+            <p class="client-name">Soundous El karoui</p>
+            <p>⭐⭐⭐⭐⭐</p>
+            <p>Très bon rapport qualité-prix, les poulets sont excellents ! Et les hamburgers très consistant.</p>
+        </div>
+        <div class="rating">
+            <p class="client-name">Ghassen A</p>
+            <p>⭐⭐⭐⭐⭐</p>
+            <p>Très bonne nourriture, gourmande et savoureuse
+                Service rapide
+                Je recommande le Duo lunch box</p>
+        </div>
+        <div class="rating">
+            <p class="client-name">Houssem Eddine Lassoued</p>
+            <p>⭐⭐⭐⭐</p>
+            <p>Une bonne adresse, accueil chaleureux, cuisine très bonne, les chickens sont bien cuits et crispy , frites très bonnes, plusieurs sauces , on a pris le Duo launch</p>
+        </div>
+        <a href="https://www.google.com/search?client=opera-gx&q=chicken+light&sourceid=opera&ie=UTF-8&oe=UTF-8#lrd=0x12e2cbbb0fde3ac3:0x8361ebc412b9feeb,1,,,,"><p class="see-more">voir plus sur avis google</p></a>
+        <footer id="contact" class="footer">
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p>Phone: 28 000 500    </p>
+                <p>Email: mondherfredj134@gmail.com</p>
+            </div>
+            <div class="location">
+                <h3>Location</h3>
+                <a href="https://maps.app.goo.gl/nDSZ33a7nDyyQimSA"><u><p>Rue du Métal 2034 soukra ariana</p></u></a>
+            </div>
+            <div class="logo">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwvgm0ZBxf1f6VXJIxqhrpdKcV6CgfkgZRBA&s" alt="Restaurant Logo">
+            </div>
+            <div class="social-icons">
+                <h3>Follow Us</h3>
+                <a href="https://www.facebook.com/Restaurant.Chicken.Light"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg" alt="Facebook"></a>
+                <a href="https://www.tiktok.com/@chicken.light.tunisie?is_from_webapp=1&sender_device=pc"><img src="https://cdn4.iconfinder.com/data/icons/social-media-flat-7/64/Social-media_Tiktok-512.png" alt="Tiktok"></a>
+                <a href="https://www.instagram.com/chicken_light_tunisie?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png" alt="Instagram"></a>
+            </div>
+        </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+</body>
+</html>
